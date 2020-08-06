@@ -3,8 +3,8 @@ import sys
 import json
 # from scipy.io import loadmat
 
-forward_primer = "CTTACACTGACAACACTCGTC"
-reversed_primer = "GACGAGTGTTGTCAGTGTAAG"
+forward_primer = "TTAGAAATATCCGCAGCGCG"
+reversed_primer = "CGCGCTGCGGATATTTCTAA"
 
 
 g_f_counter = 0
