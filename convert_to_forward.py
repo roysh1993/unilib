@@ -13,7 +13,7 @@ g_r_counter = 0
 
 def check_forward_primer(read):
     global g_f_counter
-    result =  read[:21] == forward_primer
+    result =  read[7:27] == forward_primer
     if result:
         g_f_counter += 1
     return result
@@ -22,11 +22,11 @@ def check_forward_primer(read):
 def check_reverse_primer(read):
     global g_r_counter
     length = len(read)
-    a = read[length-21:]
+    a = read[length-27:length -7]
     c = len(a)
     b = a[::-1]
 
-    result = read[length-21:]== reversed_primer
+    result = read[length-27:length -7]== reversed_primer
     if result:
         g_r_counter += 1
 
@@ -86,4 +86,8 @@ def covert_to_forward(fastq_input,fastq_output):
 #             matdata2[station] = {param: {depth: {date: v}}}
 
 if __name__ == '__main__':
-    covert_to_forward(sys.argv[1],sys.argv[2])
+    covert_to_forward("temp.fastq","blabla.fastq")
+    print(g_r_counter)
+    print(g_f_counter)
+
+    # print(len("TTAGAAATATCCGCAGCGCG"))
