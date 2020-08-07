@@ -1,6 +1,7 @@
 from Bio import SeqIO, Seq
 import numpy as np
 import pandas as pd
+import sys
 import time
 lexA_sec_barcode_count = 0
 universal_sec_barcode_count = 0
@@ -64,7 +65,7 @@ def split_library(fastq_file,barcode_df,universal_out,lexA_out):
 if __name__ == '__main__':
     bardoce_df = pd.read_excel("merged_barcodes.xlsx")
 
-    split_library("random_samp.fastq",bardoce_df,"uni_test.fastq","lexA_test.fastq")
+    split_library(sys.argv[1],bardoce_df,sys.argv[2],sys.argv[3])
     # a=5
     # print(bardoce_fastq.columns)
     # universal_barcodes = bardoce_fastq["sec_barcode_universal"].values
